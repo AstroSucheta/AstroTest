@@ -1,9 +1,9 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-create:
-branches:
-- "**"
+ push:
+  branches:
+   - "**"
 
 env:
 ## Set your API token as a GitHub secret
