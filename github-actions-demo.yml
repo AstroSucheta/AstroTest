@@ -1,0 +1,20 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+create:
+branches:
+- "**"
+
+env:
+## Set your API token as a GitHub secret
+ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+
+jobs:
+ deploy:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Create preview Deployment
+     uses: astronomer/deploy-action@v0.2
+     with:
+      action: create-deployment-preview
+      deployment-id: clozz7e1n28005364vmvr9w5x35
