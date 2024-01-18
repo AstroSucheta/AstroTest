@@ -28,6 +28,6 @@ jobs:
      with:
       action: deploy-deployment-preview
        # deployment-name: Branch-Development
-      deployment-id: clqzc5ptp3977628gzzj0k8lorq # ${{ secrets.DEV_ASTRO_DEPLOYMENT_ID }}
-      workspace: cky3avnqa828981d1obi0dcb6v
+      deployment-name: Github-Actions-Test # ${{ secrets.DEV_ASTRO_DEPLOYMENT_ID }}
+      #workspace: cky3avnqa828981d1obi0dcb6v
 
