@@ -13,9 +13,21 @@ jobs:
  deploy:
   runs-on: ubuntu-latest
   steps:
-   - name: Create preview Deployment
+   - run: sudo apt update && sudo apt install curl -y sudo bash git
+   - name: Checkout dev-update
+     uses: actions/checkout@v4
+##   - name: Create preview Deployment
+##     uses: astronomer/deploy-action@v0.2
+##     with:
+##      action: create-deployment-preview
+      ##deployment-id: clqngd12632891lqzzy2pd6iz1
+##      deployment-name: Github-Actions-Test
+      
+   - name: Deploy code to preview
      uses: astronomer/deploy-action@v0.2
      with:
-      action: create-deployment-preview
-      ##deployment-id: clqngd12632891lqzzy2pd6iz1
-      deployment-name: Github-Actions-Test
+      action: deploy-deployment-preview
+       # deployment-name: Branch-Development
+      deployment-id: clqzc5ptp3977628gzzj0k8lorq # ${{ secrets.DEV_ASTRO_DEPLOYMENT_ID }}
+      workspace: cky3avnqa828981d1obi0dcb6v
+
