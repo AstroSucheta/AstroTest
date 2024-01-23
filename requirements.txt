@@ -7,4 +7,3 @@ apache-airflow-providers-slack==4.2.3
 apache-airflow-providers-amazon==4.0.0
 apache-airflow-providers-apache-druid==3.2.0
 altair==4.2.0
-astronomer-providers-logging==1.4.6
