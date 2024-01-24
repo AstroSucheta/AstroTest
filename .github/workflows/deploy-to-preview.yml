@@ -17,4 +17,4 @@ jobs:
       uses: astronomer/deploy-action@v0.4
       with:
         action: deploy-deployment-preview
-        deployment-id: <main-deployment-id>
+        deployment-id: Github-Actions-Test
