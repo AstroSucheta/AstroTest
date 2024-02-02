@@ -1,3 +1,3 @@
-FROM quay.io/astronomer/astro-runtime:10.0.0-python-3.9
+FROM quay.io/astronomer/astro-runtime:10.3.0
 # configs
 USER astro
