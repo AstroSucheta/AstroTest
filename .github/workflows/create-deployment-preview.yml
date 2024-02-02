@@ -17,4 +17,4 @@ jobs:
         uses: astronomer/deploy-action@v0.3
         with:
           action: create-deployment-preview
-          deployment-name: Github-Actions-Test
+          deployment-name: HibernationTest
