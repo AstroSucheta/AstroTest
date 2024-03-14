@@ -3,7 +3,7 @@ name: Astronomer CI - Deploy code to preview
 on:
   pull_request:
     branches:
-      - main
+      - abc
 
 env:
   ## Set your API token as a GitHub secret
