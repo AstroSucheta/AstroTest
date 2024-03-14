@@ -2,9 +2,7 @@ name: Deploy (checkdeployaction)
 on:
   push:
     branches:
-      - checkdeployaction
-    paths:
-      - ./.github/actions/astronomer/**/*
+      - main
 jobs:
   prod-astronomer:
     env:
@@ -14,5 +12,4 @@ jobs:
       - name: Deploy Requirements.txt, DAG, includes and plugins to Astro
         uses: astronomer/deploy-action@v0.5
         with:
-          root-folder: astronomer
           deployment-name: keyvault-test
