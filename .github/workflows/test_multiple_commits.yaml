@@ -34,6 +34,6 @@ jobs:
     - name: Deploy To Astro
       uses: astronomer/deploy-action@v0.3
       with:
-        deployment-id: keyvault-test
+        deployment-name: keyvault-test
         image-name: ${{ steps.image_tag.outputs.image_tag }}
         force: true
