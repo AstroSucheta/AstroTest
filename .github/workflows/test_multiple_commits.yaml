@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         submodules: recursive
-        token: ${{ secrets.DEPLOYMENT_TOKEN }}
+
 
     - name: Create image tag
       id: image_tag
