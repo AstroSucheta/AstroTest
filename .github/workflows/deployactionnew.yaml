@@ -2,7 +2,7 @@ name: Deploy (checkdeployaction)
 on:
   push:
     branches:
-      - main
+      
 jobs:
   prod-astronomer:
     env:
