@@ -20,5 +20,9 @@ jobs:
       - name: Create deployment
         shell: bash
         run: |
-          sudo curl -sSL https://install.astronomer.io | bash -s \
+          curl -sSL https://install.astronomer.io | bash -s
+          astro version  # Verify installation
+
+      - name: List files
+        run: |
           ls -lrth
