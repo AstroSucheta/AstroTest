@@ -20,7 +20,5 @@ jobs:
       - name: Create deployment
         shell: bash
         run: |
-          curl -sSLv https://install.astronomer.io | bash -s
-          export PATH="$HOME/.astro/bin:$PATH"  # Add Astronomer CLI to PATH
-          which astro
-          astro version  # Verify installation
+          DOWNLOADER="https://raw.githubusercontent.com/astronomer/astro-cli/main/godownloader.sh"
+          curl -sL -o- ${DOWNLOADER} | bash -s -- -b /usr/local/bin "$TAG"
