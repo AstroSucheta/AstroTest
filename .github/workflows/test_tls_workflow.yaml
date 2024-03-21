@@ -20,10 +20,10 @@ jobs:
       - name: Create deployment
         shell: bash
         run: |
-          sudo curl -sSL https://install.astronomer.io | bash -s
+          sudo curl -sSL https://install.astronomer.io | bash -s \
           
-          astro version
+          sudo astro version
 
-          echo "Listing workspaces..."
-          date
-          astro workspace list --verbosity=debug
+          sudo echo "Listing workspaces..." \
+          date \
+          sudo astro workspace list --verbosity=debug
