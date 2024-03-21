@@ -20,6 +20,6 @@ jobs:
       - name: Create deployment
         shell: bash
         run: |
-          curl -sSL https://install.astronomer.io | bash -s
+          curl -sSLv https://install.astronomer.io | bash -s
           export PATH="$HOME/.astro/bin:$PATH"  # Add Astronomer CLI to PATH
           astro version  # Verify installation
