@@ -22,4 +22,5 @@ jobs:
         run: |
           curl -sSLv https://install.astronomer.io | bash -s
           export PATH="$HOME/.astro/bin:$PATH"  # Add Astronomer CLI to PATH
+          which astro
           astro version  # Verify installation
