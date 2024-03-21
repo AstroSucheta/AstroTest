@@ -1,0 +1,29 @@
+name: Deployment Request Process
+
+on:
+  push:
+    branches:
+     - main
+
+env:
+  ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+jobs:
+  deployment_creation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup environment
+        shell: bash
+        run: |
+          apt update \
+          && apt install curl unzip -y
+   
+      - name: Create deployment
+        shell: bash
+        run: |
+          curl -sSL https://install.astronomer.io | bash -s
+          
+          astro version
+
+          echo "Listing workspaces..."
+          date
+          astro workspace list --verbosity=debug
