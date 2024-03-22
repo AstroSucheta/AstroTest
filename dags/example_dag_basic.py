@@ -8,8 +8,6 @@ from airflow.decorators import (
 
 # Adding a test comment here
 #----------------------------------------
-
-#----------------------------------------
 #latest comment
 
 # When using the DAG decorator, The "dag_id" value defaults to the name of the function
