@@ -1,0 +1,49 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'AWS Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - test
+          - prod
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+
+    env:
+      ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+
+    - name: Create image tag
+      id: image_tag
+      run: echo ::set-output name=image_tag::astro-$(date +%Y%m%d%H%M%S)
+
+    - name: Build image
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        tags: ${{ steps.image_tag.outputs.image_tag }}
+        load: true
+        no-cache: true
+
+    - name: Deploy To Astro
+      uses: astronomer/deploy-action@v0.3
+      with:
+        deployment-name: keyvault-test
+        image-name: ${{ steps.image_tag.outputs.image_tag }}
+        force: true

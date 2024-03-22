@@ -1,0 +1,28 @@
+name: Deployment Request Process
+
+on:
+  push:
+    branches:
+     - abc
+
+env:
+  ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+jobs:
+  deployment_creation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup environment
+        shell: bash
+        run: |
+          sudo apt update \
+          && sudo apt install curl unzip -y
+   
+      - name: Create deployment
+        shell: bash
+        run: |
+          DOWNLOADER="https://raw.githubusercontent.com/astronomer/astro-cli/main/godownloader.sh"
+          curl -sL -o- ${DOWNLOADER} | bash -s -- -b /usr/local/bin "$TAG"
+          echo "Listing workspaces..."
+          date
+          astro workspace list --verbosity=debug
+          
