@@ -2,8 +2,18 @@ name: Deploy
 on:
   push:
     branches:
-      - main
-
+      - master
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'AWS Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - test
+          - prod
 jobs:
   Deploy:
     runs-on: ubuntu-latest
