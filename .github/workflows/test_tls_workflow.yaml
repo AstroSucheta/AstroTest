@@ -3,7 +3,7 @@ name: Deployment Request Process
 on:
   push:
     branches:
-     - main
+     - abc
 
 env:
   ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
