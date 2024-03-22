@@ -31,7 +31,7 @@ jobs:
       run: echo ::set-output name=image_tag::astro-$(date +%Y%m%d%H%M%S)
 
     - name: Build image
-      uses: docker/build-push-action@v0.3
+      uses: docker/build-push-action@v3
       with:
         context: .
         tags: ${{ steps.image_tag.outputs.image_tag }}
