@@ -42,5 +42,5 @@ jobs:
       with:
         deployment-name: keyvault-test
         image-name: ${{ steps.image_tag.outputs.image_tag }}
-        deploy-image: $deploy-image
+        deploy-image: ${{ inputs.deploy-image }}
         force: true
