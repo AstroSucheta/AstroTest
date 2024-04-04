@@ -2,15 +2,14 @@ name: Deploy
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'AWS Environment'
+      deploy-image:
+        description: 'deploy-image'
         required: true
-        default: 'dev'
+        default: 'false'
         type: choice
         options:
-          - dev
-          - test
-          - prod
+          - 'false'
+          - 'true'
 jobs:
   Deploy:
     runs-on: ubuntu-latest
@@ -43,4 +42,5 @@ jobs:
       with:
         deployment-name: keyvault-test
         image-name: ${{ steps.image_tag.outputs.image_tag }}
+        deploy-image: ${{ inputs.deploy-image }}
         force: true
