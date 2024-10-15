@@ -1,0 +1,24 @@
+name: Astronomer CI - Deployment
+on:
+  release:
+    types: [ published ]
+  workflow_dispatch:
+
+env:
+  RUN_PYTEST: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Astro
+        uses: astronomer/deploy-action@v0.7.1
+        env:
+          ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
+          DEPLOYMENT_ID: cm28zt0ts0rs101qmtpl3jagm
+        with:
+          deploy-type: infer
+          root-folder: ./astronomer-example
+          force: true # without this, it fails due to our custom backend integration...
+          pytest: ${{ env.RUN_PYTEST }}
+          description: ${{ github.ref }}
