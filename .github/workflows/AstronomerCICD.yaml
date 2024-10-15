@@ -18,7 +18,7 @@ jobs:
           DEPLOYMENT_ID: cm28zt0ts0rs101qmtpl3jagm
         with:
           deploy-type: infer
-          root-folder: ./astronomer-example
+          root-folder: astronomer-example
           force: true # without this, it fails due to our custom backend integration...
           pytest: ${{ env.RUN_PYTEST }}
           description: ${{ github.ref }}
