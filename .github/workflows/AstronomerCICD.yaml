@@ -1,8 +1,8 @@
 name: Astronomer CI - Deployment
 on:
-  pull_request:
-    branches:
-      - "**"
+  release:
+    types: [ published ]
+  workflow_dispatch:
 
 env:
   RUN_PYTEST: false
