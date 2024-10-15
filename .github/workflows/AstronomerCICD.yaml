@@ -22,3 +22,4 @@ jobs:
           force: true # without this, it fails due to our custom backend integration...
           pytest: ${{ env.RUN_PYTEST }}
           description: ${{ github.ref }}
+          deploy-image: true
